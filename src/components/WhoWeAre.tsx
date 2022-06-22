@@ -1,10 +1,11 @@
 import { Button, Flex, Image, Text, VStack } from "@chakra-ui/react";
 import heartshake from "../assets/heartshake.png";
+import screening from "../assets/screening.png";
 import expert from "../assets/expert.png";
-import car from "../assets/car.png";
 import training from "../assets/training.png";
 import calendar from "../assets/calendar.png";
-import screening from "../assets/screening.png";
+import { Element } from "react-scroll";
+import car from "../assets/car.png";
 
 const Row1 = () => {
   return (
@@ -169,7 +170,7 @@ const Premise = () => {
 };
 const WhoWeAre = () => {
   return (
-    <>
+    <Element name="About">
       <Flex
         direction={["column", "column", "column", "row"]}
         justify={["space-around", "center"]}
@@ -184,7 +185,7 @@ const WhoWeAre = () => {
         <Premise />
         <Conclusion />
       </Flex>
-    </>
+    </Element>
   );
 };
 export default WhoWeAre;

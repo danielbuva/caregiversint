@@ -6,17 +6,17 @@
 // import memorylight from "../assets/memorylight.png";
 // import palliativelight from "../assets/palliativelight.png";
 // import inclusivelight from "../assets/inclusivelight.png";
-import expert from "../assets/expert.png";
-import friend from "../assets/friend.png";
-import home from "../assets/home.png";
-import hospital from "../assets/hospital.png";
-import respite from "../assets/respite.png";
-import memory from "../assets/memory.png";
+import { Flex, Text, VStack } from "@chakra-ui/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import palliative from "../assets/palliative.png";
 import inclusive from "../assets/inclusive.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Flex, Text, VStack } from "@chakra-ui/react";
-
+import hospital from "../assets/hospital.png";
+import respite from "../assets/respite.png";
+import expert from "../assets/expert.png";
+import friend from "../assets/friend.png";
+import memory from "../assets/memory.png";
+import { Element } from "react-scroll";
+import home from "../assets/home.png";
 import "swiper/css";
 
 const Card1 = () => {
@@ -281,12 +281,12 @@ const Row_two = () => {
 };
 const OurServices = () => {
   return (
-    <>
+    <Element name="Services">
       <Flex
         direction={["column"]}
         bg="white"
         w="100vw"
-        h={["100%", "100%", "100%", "100vh","100vh"]}
+        h={["100%", "100%", "100%", "100vh", "100vh"]}
         minH={["565px"]}
         maxH="1100px"
         align="center"
@@ -302,7 +302,7 @@ const OurServices = () => {
         </Flex>
         <Carousele />
       </Flex>
-    </>
+    </Element>
   );
 };
 export default OurServices;

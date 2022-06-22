@@ -2,11 +2,11 @@ import { Flex, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/Ai";
 import { RiFacebookFill } from "react-icons/Ri";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 
-const phone_number = "(818) 402-6006";
-const Feet = () => {
+const Feet = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<SetStateAction<boolean>> }) => {
   const [className, setClassName] = useState<string>("");
+  const phone_number = "(818) 402-6006";
 
   const addClassName = () => {
     if (window.scrollY < 100) {
@@ -28,16 +28,15 @@ const Feet = () => {
         p="5"
         direction="column"
         transition="background-color 0.25s ease-in-out"
-        // css={footer === "clear" ? { backgroundColor: "transparent" } : { backgroundColor: "#147700" }}
+        css={hide ? { position: "static" } : { position: "sticky" }}
         // bg="#147700"
         className={className}
         w="100vw"
         h="110px"
-        pos="sticky"
         bottom="0"
         zIndex={1}
       >
-        <Text mb={-3} fontSize="x-large" className="sticky" css={{ fontVariantCaps: "all-petite-caps" }}>
+        <Text mb={-3} fontSize="x-large" css={{ fontVariantCaps: "all-petite-caps" }}>
           we are here for you
         </Text>
         <Link href="tel: 818-402-7890" fontSize="xx-large" fontWeight={900}>

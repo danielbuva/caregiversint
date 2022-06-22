@@ -2,36 +2,73 @@ import { Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import { SetStateAction, useEffect, useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import biglogo from "../assets/biglogo.png";
-import { Link } from "react-scroll";
+import * as Scroll from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 
-const Company = () => {
+const Company = ({ setOpen, setHide }: { setOpen: React.Dispatch<SetStateAction<boolean>>; setHide: React.Dispatch<SetStateAction<boolean>> }) => {
   return (
-    <Link to="/">
-      <HStack>
-        <VStack justify="center">
-          <Text fontSize="xx-large">CAREGIVERS</Text>
-          <Text fontSize="19px" mt={0} style={{ marginTop: "0px !important" }} className="international">
-            INTERNATIONAL, Inc.
-          </Text>
-        </VStack>
-        <Image src={biglogo} alt="Big-Logo" boxSize={53} />
-      </HStack>
-    </Link>
+    <HStack
+      onClick={() => {
+        setHide(false);
+        setOpen(false);
+        scroll.scrollToTop({ smooth: true, offset: -25 });
+      }}
+    >
+      <VStack justify="center">
+        <Text fontSize="xx-large">CAREGIVERS</Text>
+        <Text fontSize="19px" mt={0} style={{ marginTop: "0px !important" }} className="international">
+          INTERNATIONAL, Inc.
+        </Text>
+      </VStack>
+      <Image src={biglogo} alt="Big-Logo" boxSize={53} />
+    </HStack>
   );
 };
-const Navigation = () => {
+const Navigation = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<SetStateAction<boolean>> }) => {
   return (
     <Flex display={["none", "none", "flex"]} w="70%" px="4" fontSize="20" fontWeight="bold" justify="flex-end">
       <Flex w="70%" justify="space-between">
-        <Link to="Services">SERVICES</Link>
-        <Link to="GetStarted">GET STARTED</Link>
-        <Link to="About">ABOUT</Link>
+        <Text
+          onClick={() => {
+            setHide(false);
+            Scroll.scroller.scrollTo("Services", { smooth: true, offset: -25 });
+          }}
+          style={{ paddingBottom: "15px", cursor: "pointer" }}
+        >
+          SERVICES
+        </Text>
+        <Text
+          onClick={() => {
+            setHide(false);
+            Scroll.scroller.scrollTo("About", { smooth: true, offset: -25 });
+          }}
+          style={{ paddingBottom: "15px", cursor: "pointer" }}
+        >
+          ABOUT
+        </Text>
+        <Text
+          onClick={() => {
+            setHide(false);
+            Scroll.scroller.scrollTo("StartNow", { smooth: true, offset: -25 });
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          GET STARTED
+        </Text>
         {/* <Link to="ContactUs">CONTACT US</Link> */}
       </Flex>
     </Flex>
   );
 };
-const SideNav = ({ isOpen, setOpen }: { isOpen: boolean; setOpen: React.Dispatch<SetStateAction<boolean>> }) => {
+const SideNav = ({
+  isOpen,
+  setOpen,
+  setHide,
+}: {
+  isOpen: boolean;
+  setOpen: React.Dispatch<SetStateAction<boolean>>;
+  setHide: React.Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <>
       <Hamburger rounded toggled={isOpen} toggle={() => setOpen(!isOpen)} direction="left" hideOutline={true} label="Show menu" />
@@ -52,25 +89,58 @@ const SideNav = ({ isOpen, setOpen }: { isOpen: boolean; setOpen: React.Dispatch
         fontSize="xx-large"
       >
         <Flex direction="column" height="60%" justify="space-around">
-          {/* <Link to="" onClick={() => {}} style={{ paddingBottom: "15px", paddingTop: "30px" }}>
-            GET STARTED
-          </Link> */}
-          <Link to="Services" onClick={() => {}} style={{ paddingBottom: "15px" }}>
-            SERVICES
-          </Link>
-          <Link to="About" onClick={() => {}} style={{ paddingBottom: "15px" }}>
-            ABOUT
-          </Link>
-          <Link to="" onClick={() => {}} style={{ paddingBottom: "15px" }}>
+          {/* <Link to="" onClick={() => {}} style={{  paddingTop: "30px" }}>
             CONTACT US
-          </Link>
+          </Link> */}
+          <Text
+            onClick={() => {
+              setHide(false);
+              Scroll.scroller.scrollTo("Services", { smooth: true, offset: -25 });
+              setOpen(false);
+            }}
+            style={{ cursor: "pointer" }}
+            fontWeight="bold"
+          >
+            SERVICES
+          </Text>
+          <Text
+            onClick={() => {
+              setHide(false);
+              Scroll.scroller.scrollTo("About", { smooth: true, offset: -25 });
+              setOpen(false);
+            }}
+            style={{ paddingBottom: "15px", cursor: "pointer" }}
+            fontWeight="bold"
+          >
+            ABOUT
+          </Text>
+          <Text
+            onClick={() => {
+              setHide(false);
+              Scroll.scroller.scrollTo("StartNow", { smooth: true, offset: -25 });
+              setOpen(false);
+            }}
+            style={{ paddingBottom: "15px", cursor: "pointer" }}
+            fontWeight="bold"
+          >
+            GET STARTED
+          </Text>
         </Flex>
       </Flex>
     </>
   );
 };
-const Header = ({ isOpen, setOpen }: { isOpen: boolean; setOpen: React.Dispatch<SetStateAction<boolean>> }) => {
-
+const Header = ({
+  isOpen,
+  setOpen,
+  hide,
+  setHide,
+}: {
+  isOpen: boolean;
+  setOpen: React.Dispatch<SetStateAction<boolean>>;
+  hide: boolean;
+  setHide: React.Dispatch<SetStateAction<boolean>>;
+}) => {
   const [className, setClassName] = useState<string>("");
 
   const addClassName = () => {
@@ -86,14 +156,13 @@ const Header = ({ isOpen, setOpen }: { isOpen: boolean; setOpen: React.Dispatch<
     window.addEventListener("scroll", addClassName);
     return () => window.removeEventListener("scroll", addClassName);
   }, [addClassName]);
-  console.log(scrollY);
-  console.log(className);
   return (
     <>
       <Flex
         // bg="#147700"
+        css={(hide && { backgroundColor: "#147700 !important" }) || (isOpen && { backgroundColor: "#147700 !important" })}
         w="100vw"
-        px={[3]}
+        px={3}
         justify={["space-between", "space-between", "space-between", "center"]}
         align="center"
         position="sticky"
@@ -102,11 +171,11 @@ const Header = ({ isOpen, setOpen }: { isOpen: boolean; setOpen: React.Dispatch<
         className={className}
       >
         <Flex w="100%" justify="space-between" align="center" maxW="1200px">
-          <Company />
-          <Navigation />
+          <Company setHide={setHide} setOpen={setOpen} />
+          <Navigation hide={hide} setHide={setHide} />
         </Flex>
         <Flex display={["flex", "flex", "none"]}>
-          <SideNav isOpen={isOpen} setOpen={setOpen} />
+          <SideNav isOpen={isOpen} setOpen={setOpen} setHide={setHide} />
         </Flex>
       </Flex>
     </>
