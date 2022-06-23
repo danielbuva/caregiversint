@@ -1,8 +1,8 @@
 import { Flex, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { SetStateAction, useEffect, useState } from "react";
 import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/Ai";
-import { RiFacebookFill } from "react-icons/Ri";
+import { AiFillInstagram } from "react-icons/ai";
+import { RiFacebookFill } from "react-icons/ri";
 import * as Scroll from "react-scroll";
 
 const Feet = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<SetStateAction<boolean>> }) => {
