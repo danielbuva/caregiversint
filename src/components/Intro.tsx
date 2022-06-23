@@ -10,7 +10,7 @@ const Intro = () => {
       <Text fontSize={["60px", "62px"]} fontWeight="700" w={["100vw", "100%", "700px"]} align="center" mt={["0", "-200px"]}>
         Family Driven Caregiving Company
       </Text>
-      <Text fontSize="26px" w={["100%", "100%", "669px"]} align="center">
+      <Text fontSize="26px" w={["99%", "100%", "669px"]} align="center">
         Tailor-made caregiving services for communities worldwide.
       </Text>
     </VStack>

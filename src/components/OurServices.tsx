@@ -17,7 +17,13 @@ import friend from "../assets/friend.png";
 import memory from "../assets/memory.png";
 import { Element } from "react-scroll";
 import home from "../assets/home.png";
+import ".././image-slider.scss";
+import "swiper/css/navigation";
+import "swiper/css/a11y";
+import "swiper/css/pagination";
 import "swiper/css";
+
+import { A11y, Navigation, Pagination, Scrollbar, Thumbs } from "swiper";
 
 const Card1 = () => {
   return (
@@ -189,7 +195,7 @@ const Card8 = () => {
       <img src={expert} alt="expert" style={{ width: "150px" }} />
       {/* <img src={expertlight} alt="expertlight" style={{ width: "150px" }} /> */}
       <Text fontSize="22px" fontWeight="600" color="black">
-        Not Sure
+        Not Sure?
       </Text>
       <Text color="black">Free Expert Consulting</Text>
     </VStack>
@@ -200,7 +206,17 @@ const Carousele = () => {
   return (
     <>
       <Flex w="90%" h="350px" justify="center" align="center" display={["flex", "flex", "none", "none"]} zIndex={0}>
-        <Swiper scrollbar={true} freeMode={true} loop={true} effect="cards" grabCursor={true} spaceBetween={10}>
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          navigation
+          pagination={{ clickable: true }}
+          freeMode={true}
+          loop={true}
+          effect="cards"
+          grabCursor={true}
+          spaceBetween={10}
+          className="images-slider"
+        >
           <SwiperSlide style={{ color: "black" }}>
             <Card1 />
           </SwiperSlide>
@@ -228,7 +244,18 @@ const Carousele = () => {
         </Swiper>
       </Flex>
       <Flex w="100%" h="350px" justify="center" align="center" display={["none", "none", "flex", "none"]} zIndex={0}>
-        <Swiper loop={true} effect="cards" grabCursor={true} spaceBetween={10} slidesPerView={3}>
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          navigation
+          pagination={{ clickable: true }}
+          freeMode={true}
+          loop={true}
+          effect="cards"
+          grabCursor={true}
+          spaceBetween={10}
+          className="images-slider"
+          slidesPerView={3}
+        >
           <SwiperSlide style={{ color: "black" }}>
             <Card1 />
           </SwiperSlide>

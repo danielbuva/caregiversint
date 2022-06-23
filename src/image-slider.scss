@@ -1,0 +1,30 @@
+.images-slider {
+
+    .swiper-button-prev {
+        color: rgb(255, 255, 255);
+        padding: 0px 10px 0px 0px;
+    }
+
+    .swiper-button-next {
+        color: rgb(255, 255, 255);
+        padding: 0px 0px 0px 10px;
+    }
+    .swiper-pagination {
+        color: rgb(255, 255, 255);
+    }
+    .swiper-pagination {
+        // padding-top: 10px;
+    }
+    .swiper-pagination-bullet {
+        padding: 0px 10px;
+        border-radius: 4px;
+        width: 10px;
+        color:#000;
+        opacity: 0.5;
+        background: rgba(0,0,0,0.2);
+    }
+    .swiper-pagination-bullet-active {
+        background: darkgreen;
+        opacity: 1;
+    }
+}

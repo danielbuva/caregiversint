@@ -117,11 +117,6 @@ const Conclusion = () => {
         <Text fontSize="36px" fontWeight="690" color="black" py={[6, 6]} pt={[0, 0, 20, 0]}>
           Our Company
         </Text>
-        {/* <Flex direction="column" display={["flex"]}>
-          <Row1 />
-          <Row2 />
-          <Row3 />
-        </Flex>*/}
         <Row1 />
         <Row2 />
         <Row3 />
@@ -147,7 +142,7 @@ const Premise = () => {
       <Text color="black" pt="20px">
         We believe in the power of community.
       </Text>
-      <Text color="black" borderBottom="solid 1px lightgray">
+      <Text color="black">
         We thrive on building relationships.
       </Text>
       <Text color="black" pb="30px">

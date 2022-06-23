@@ -3,6 +3,8 @@ import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/Ai";
 import { RiFacebookFill } from "react-icons/Ri";
 import { SetStateAction, useEffect, useState } from "react";
+import * as Scroll from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 
 const Feet = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<SetStateAction<boolean>> }) => {
   const [className, setClassName] = useState<string>("");
@@ -45,10 +47,24 @@ const Feet = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<SetSta
       </VStack>
       <Flex align="center" direction="column" bg="#147700" w="100vw" mb={0}>
         <Flex justify="space-between" direction={["column", "column", "row"]} w={[50, 600]} mb="10" fontSize="xx-large" align="center">
-          <Text fontSize="x-large" fontWeight="bold" display={["none", "none", "flex"]}>
+          <Text
+            fontSize="x-large"
+            fontWeight="bold"
+            display={["none", "none", "flex"]}
+            onClick={() => {
+              Scroll.scroller.scrollTo("Services", { smooth: true, offset: -25 });
+            }}
+          >
             Services
           </Text>
-          <Text fontSize="x-large" fontWeight="bold" display={["none", "none", "flex"]}>
+          <Text
+            fontSize="x-large"
+            fontWeight="bold"
+            display={["none", "none", "flex"]}
+            onClick={() => {
+              Scroll.scroller.scrollTo("About", { smooth: true, offset: -25 });
+            }}
+          >
             About
           </Text>
           <Text fontSize="x-large" mr="-40px" display={["none", "none", "flex"]}>
