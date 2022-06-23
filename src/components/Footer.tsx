@@ -49,6 +49,7 @@ const Feet = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<SetSta
           <Text
             fontSize="x-large"
             fontWeight="bold"
+            cursor="pointer"
             display={["none", "none", "flex"]}
             onClick={() => {
               Scroll.scroller.scrollTo("Services", { smooth: true, offset: -25 });
@@ -60,6 +61,7 @@ const Feet = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<SetSta
             fontSize="x-large"
             fontWeight="bold"
             display={["none", "none", "flex"]}
+            cursor="pointer"
             onClick={() => {
               Scroll.scroller.scrollTo("About", { smooth: true, offset: -25 });
             }}
