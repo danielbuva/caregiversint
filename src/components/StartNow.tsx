@@ -167,8 +167,8 @@ const StartNow = ({ hide, setHide }: { hide: boolean; setHide: React.Dispatch<Se
                   <Button onClick={() => setButtonClicked(!buttonClicked)} type="submit" value="Send" w={["100%", "80%", 269, 269]} borderRadius="20" bg="#649AB6">
                     Send
                   </Button>
-                  <Flex display="flex" justify="space-between" alignItems="center" w="230px" ml="10">
-                    <Checkbox type="checkbox" id="privacy-policy" />
+                  <Flex display="flex" justify="space-between" alignItems="center" w="250px" ml="10">
+                    <Checkbox type="checkbox" id="privacy-policy" pr={3} />
                     <Text>
                       I accept your &nbsp;
                       <Text

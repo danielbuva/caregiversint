@@ -1,7 +1,3 @@
-// import personleadingperson from "../../assets/personleadingperson.jpg";
-// import personshowingperson from "../../assets/personshowingperson.jpg";
-// import womensitting from "../../assets/womensitting.jpg";
-// import woman from "../../assets/woman.jpg";
 import { Text, VStack } from "@chakra-ui/react";
 
 const Intro = () => {

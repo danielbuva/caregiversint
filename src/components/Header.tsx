@@ -1,9 +1,9 @@
 import { Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import { SetStateAction, useEffect, useState } from "react";
+import { animateScroll as scroll } from "react-scroll";
 import { Divide as Hamburger } from "hamburger-react";
 import biglogo from "../assets/biglogo.png";
 import * as Scroll from "react-scroll";
-import { animateScroll as scroll } from "react-scroll";
 
 const Company = ({ setOpen, setHide }: { setOpen: React.Dispatch<SetStateAction<boolean>>; setHide: React.Dispatch<SetStateAction<boolean>> }) => {
   return (
@@ -159,7 +159,6 @@ const Header = ({
   return (
     <>
       <Flex
-        // bg="#147700"
         css={(hide && { backgroundColor: "#147700 !important" }) || (isOpen && { backgroundColor: "#147700 !important" })}
         w="100vw"
         px={3}
